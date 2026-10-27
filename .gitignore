@@ -1,0 +1,25 @@
+# Raw datasets
+data/
+raw/
+
+# Generated databases
+*.db
+*.sqlite
+*.sqlite3
+
+# Python temporary files
+__pycache__/
+*.pyc
+
+# Jupyter temporary files
+.ipynb_checkpoints/
+
+# macOS
+.DS_Store
+
+# Python virtual environments
+.venv/
+venv/
+# Local dataset and assignment handout
+/movielens_100k.csv
+/HW3.pdf
