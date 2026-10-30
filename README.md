@@ -18,17 +18,20 @@ The raw dataset and generated SQLite database are excluded from Git.
 Run the following command from the project root:
 
 ```bash
-python src/download.py
+make
 ```
 
-This script downloads the dataset, extracts it into `data/raw/ml-100k/`, and prints its SHA-256 checksum.
+`make` downloads and extracts the dataset if needed, runs a strict load that records refused rows in `output/rejected.csv`, then clears and reloads the database from all raw files using `src/reload.py`. The second stage does not overwrite the rejection report. Use `make download` to acquire the data without rebuilding the database, or `make clean` to remove generated database and rejection files.
 
 ## Project Structure
 
-- `notebooks/` — Exploratory data analysis
-- `src/` — Data downloading and loading scripts
+- `Notebooks/` — Exploratory data analysis
+- `src/` — Data downloading and database loading scripts
 - `sql/` — Database schema and SQL queries
-- `output/` — Generated reports and validation outputs
+- `data/` — Downloaded raw data and generated database (not committed)
+- `output/` — Generated refusal report
+
+See [`writeup.md`](./writeup.md) for Step 3 row-count predictions and load results.
 
 ## Team Collaboration
 
@@ -40,4 +43,4 @@ ChatGPT was used for explanations, debugging guidance, and assistance with code 
 
 ## Status
 
-Work in progress. Initial data exploration and dataset download functionality have been implemented.
+Work in progress. Initial data exploration and dataset download functionality have been implemented. SQL loading have been implemented.

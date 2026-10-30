@@ -1,6 +1,10 @@
-# Raw datasets
-data/
-raw/
+# Downloaded source data
+/data/raw/
+/raw/
+
+# Generated database and load/query outputs
+/data/movielens.db
+/output/
 
 # Generated databases
 *.db
